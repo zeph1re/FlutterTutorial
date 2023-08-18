@@ -9,10 +9,26 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('First Text in Flutter'),
+        appBar: AppBar(
+          title: const Text("Row and Column"),
+        ),
+        body: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("data 1"),
+            Text("data 2"),
+            Text("data 3"),
+            Row(
+              children: [
+                Text("data 4"),
+                Text("data 5"),
+                Text("data 6"),
+              ],
+            )
+          ],
         ),
       ),
     );
