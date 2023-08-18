@@ -12,46 +12,47 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String message = "Ini adalah text";
+  List<Widget> widgets = [];
+
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Text Style"),
+          title: const Text("ListView"),
         ),
-        body: Center(
-          child: Column(
+        body: ListView(children: [
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                message,
-                style: const TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 24,
-                    fontStyle: FontStyle.italic,
-                    decoration: TextDecoration.overline,
-                    decorationColor: Colors.red,
-                    decorationThickness: 5,
-                    decorationStyle: TextDecorationStyle.wavy),
-              ),
-              const SizedBox(height: 10),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    message = "Button Pressed";
-                  });
-                },
-                style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.green),
-                child: const Text("Press Me",
-                    style: const TextStyle(fontFamily: "Poppins")),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      widgets.add(Text("Data ke-$counter"));
+                    });
+                    counter++;
+                  },
+                  child: const Text("Tambah Data"),
+                ),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        widgets.removeLast();
+                      });
+                      counter--;
+                    },
+                    child: const Text("Hapus Data")),
+              ]),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: widgets,
               )
             ],
           ),
-        ),
+        ]),
       ),
     );
   }
