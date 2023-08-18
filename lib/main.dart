@@ -12,51 +12,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
-
-  void pushButton() {
-    // Untuk mengubah tampilan sesuai dengan state yang ada saat ini (Update Hot Reload)
-    setState(() {
-      number++;
-    });
-  }
-
-  void reset() {
-    // Untuk mengubah tampilan sesuai dengan state yang ada saat ini (Update Hot Reload)
-    setState(() {
-      number = 0;
-    });
-  }
+  String message = "Ini adalah text";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text("Stateful")),
+        appBar: AppBar(
+          title: const Text("Anonymous Method"),
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(number.toString(),
-                  style: TextStyle(fontSize: 24 + number.toDouble())),
+              Text(message),
               const SizedBox(height: 10),
               TextButton(
-                onPressed: pushButton,
+                onPressed: () {
+                  setState(() {
+                    message = "Button Pressed";
+                  });
+                },
                 style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.green),
-                child: const Text(
-                  "Add",
-                ),
-              ),
-              const SizedBox(height: 10),
-              TextButton(
-                onPressed: reset,
-                style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.green),
-                child: const Text("Reset"),
-              ),
+                child: const Text("Press Me"),
+              )
             ],
           ),
         ),
