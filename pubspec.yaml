@@ -17,3 +17,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+fonts:
+  - family: Poppins
+    fonts:
+      - asset: fonts/Poppins-Regular.ttf
+      - asset: fonts/Poppins-Italic.ttf
+        style: italic
+
+  - family: Merriweather
+    fonts:
+      - asset: fonts/Merriweather-Regular.ttf
+      - asset: fonts/Merriweather-Italic.ttf
+        style: italic

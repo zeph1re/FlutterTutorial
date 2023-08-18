@@ -19,13 +19,23 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Anonymous Method"),
+          title: const Text("Text Style"),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(message),
+              Text(
+                message,
+                style: const TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 24,
+                    fontStyle: FontStyle.italic,
+                    decoration: TextDecoration.overline,
+                    decorationColor: Colors.red,
+                    decorationThickness: 5,
+                    decorationStyle: TextDecorationStyle.wavy),
+              ),
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
@@ -36,7 +46,8 @@ class _MyAppState extends State<MyApp> {
                 style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.green),
-                child: const Text("Press Me"),
+                child: const Text("Press Me",
+                    style: const TextStyle(fontFamily: "Poppins")),
               )
             ],
           ),
