@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,48 +13,26 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> widgets = [];
-
-  int counter = 1;
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("ListView"),
-        ),
-        body: ListView(children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      widgets.add(Text("Data ke-$counter"));
-                    });
-                    counter++;
-                  },
-                  child: const Text("Tambah Data"),
-                ),
-                TextButton(
-                    onPressed: () {
-                      setState(() {
-                        widgets.removeLast();
-                      });
-                      counter--;
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text("Animated Container"),
+            ),
+            body: Center(
+                child: GestureDetector(
+                    onTap: () {
+                      setState(() {});
                     },
-                    child: const Text("Hapus Data")),
-              ]),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: widgets,
-              )
-            ],
-          ),
-        ]),
-      ),
-    );
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 1000),
+                      width: 50.0 + random.nextInt(101),
+                      height: 50.0 + random.nextInt(101),
+                      color: Color.fromARGB(255, random.nextInt(256),
+                          random.nextInt(256), random.nextInt(256)),
+                    )))));
   }
 }
