@@ -10,23 +10,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text("Image Widget"),
-      ),
-      body: Center(
-        child: Container(
-          color: Colors.amber,
-          width: 200,
-          height: 200,
-          padding: const EdgeInsets.all(1),
-          child: const Image(
-            image: AssetImage("images/arlinnoganda.jpg"),
-            fit: BoxFit.contain,
-            repeat: ImageRepeat.repeat,
-          ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Spacer Widget"),
         ),
+        body: Center(
+            child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Spacer(
+              flex: 4,
+            ),
+            Container(
+              width: 80,
+              height: 80,
+              color: Colors.red,
+            ),
+            const Spacer(
+              flex: 3,
+            ),
+            Container(
+              width: 80,
+              height: 80,
+              color: Colors.blue,
+            ),
+            const Spacer(
+              flex: 2,
+            ),
+            Container(
+              width: 80,
+              height: 80,
+              color: Colors.greenAccent,
+            ),
+            const Spacer(
+              flex: 2,
+            ),
+          ],
+        )),
       ),
-    ));
+    );
   }
 }
